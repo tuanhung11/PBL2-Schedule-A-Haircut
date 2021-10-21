@@ -1,5 +1,6 @@
 #include "Admin.h"
 #include "clientdata.h"
+#include <iostream>
 
 //*DANG NHAP*
 void admin::singin(){

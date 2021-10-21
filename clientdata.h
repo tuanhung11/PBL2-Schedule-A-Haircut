@@ -22,11 +22,7 @@ class ClientData
         void out_file_clientdata(ClientData list1[], int c);
         void find_client(ClientData list1[], int c);
         void delete_client(ClientData list1[]);
-        // Ham tao du lieu Khach hang (Client Data)
-        //ClientData(long  = 0, string = "", string = "", string = "", int = 0, int = 0, long  = 0 );
-        // Ham chuc nang
-        //void takeinfo(long  &a,string &b, string &c, string &d,int &e,int &f, long &g);
- }; 
+}; 
 
 void createaccount()
 {
