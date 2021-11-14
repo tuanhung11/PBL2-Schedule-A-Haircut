@@ -116,30 +116,30 @@ int main()
 // cin >> DMY
 void Nhap(Date &DMY)
 {
-    cout << "  Nam sinh (YYYY): "; cin >> DMY.Y;
+    cout << "                                                            Nam sinh (YYYY): "; cin >> DMY.Y;
     if (check_year(DMY.Y))
     {}
     else
     {
-    cout << "   # Nhap sai!\n";
+    cout << "                                                        # Nhap sai!\n";
     exit(0);
     }
     
-    cout << "  Thang sinh (MM): "; cin >> DMY.M;
+    cout << "                                                            Thang sinh (MM): "; cin >> DMY.M;
     if (check_month(DMY.M))
     {}
     else
     {
-    cout << "   # Nhap sai!";
+    cout << "                                                        # Nhap sai!";
     exit(0);
     }
 
-    cout << "  Ngay sinh (DD): "; cin >> DMY.D;
+    cout << "                                                            Ngay sinh (DD): "; cin >> DMY.D;
     if (check_date(DMY.D, DMY.M, DMY.Y))
     {}
     else
     {
-        cout << "   # Nhap sai!";
+        cout << "                                                    # Nhap sai!";
         exit(0);
     }
 }
@@ -153,9 +153,9 @@ long Day()
 {
     Date DMY1;
     long ngaysinh;
-    cout << "Nhap ngay sinh nhat cua ban: " << endl;
+    cout << "                                                        Nhap ngay sinh nhat cua ban: " << endl;
     Nhap(DMY1);
-    cout << "Ngay sinh cua ban (D-M-Y): " << DMY1.D <<"-"<< DMY1.M<<"-" << DMY1.Y<< endl;
+    cout << "                                                        Ngay sinh cua ban (D-M-Y): " << DMY1.D <<"-"<< DMY1.M<<"-" << DMY1.Y<< endl;
     //YYYY-MM-DD
     ngaysinh=(DMY1.Y*100+DMY1.M)*100+DMY1.D;
     return ngaysinh;
