@@ -1,5 +1,4 @@
 #include "Admin.cpp"
-#include <iostream>
 
 main(){
     system("CLS");

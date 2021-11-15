@@ -1,6 +1,5 @@
 #include "Admin.h"
 #include "clientdata.h"
-#include <iostream>
 
 //*HAM HUY ADMIN*
 admin::~admin(){
@@ -15,7 +14,6 @@ void admin::singin(){
     do{
         if (temp > 0)  
         cout << "\n\n\t\t\t                             *SO DIEN THOAI HOAC MAT KHAU KHONG DUNG, MOI NHAP LAI!*\n\n";
-        
         cout << "\t\t\t                                         Nhap so dien thoai: ";
         cin >> phone;
         cout << "\t\t\t                                         Nhap mat khau     : ";
@@ -72,7 +70,7 @@ int  staff::read_file_staff(staff list0[]){
     FILE *p;
     p = fopen("staff.txt","r");
     while(feof(p) == false){
-        char s[230], temp[200][250], temp3[100];
+    char s[230], temp[200][250], temp3[100];
         int temp2;
             fgets(s,230,p);
                 split(s,temp);
@@ -123,35 +121,40 @@ void staff::out_file_staff(staff list0[], int s){
 void staff::add_staff(staff list0[], int s){
     int g,lc;
     do{
-        cout << "\n\t                                            --------------TAO THONG TIN NHAN VIEN--------------\n\n";
+        cout <<     "\n\t                                            --------------TAO THONG TIN NHAN VIEN--------------\n\n";
         cin.ignore();
-        cout << "                                                        Nhap ID (Vi du: S456): ";                     cin.getline(staffid,8);
-        cout << "                                                        Nhap Ho: ";                                   cin.getline(firstname,15);
-        cout << "                                                        Nhap Ten: ";                    cin.getline(lastname,20);
+        cout <<     "                                                        Nhap ID (Vi du: S456): ";
+        cin.getline(staffid,8);
+        cout <<     "                                                        Nhap Ho: ";                                   
+        cin.getline(firstname,15);
+        cout <<     "                                                        Nhap Ten: ";                    
+        cin.getline(lastname,20);
         int dem; 
-        cout << "                                                        Nhap So dien thoai (10 so): ";  cin >> staffphone;
+        cout <<     "                                                        Nhap So dien thoai (10 so): ";  
+        cin >> staffphone;
         do{
-            cout << "                                                        Gioi tinh (1- Nam, 2- Nu): ";   cin >> gender;
+            cout << "                                                        Gioi tinh (1- Nam, 2- Nu): ";   
+            cin >> gender;
         }
         while (gender > 2 || gender < 1);
-        cout << "                                                        Nhap luong thang ($): ";        cin >> pay;
+        cout <<     "                                                        Nhap luong thang ($): ";        
+        cin >> pay;
         g = Day();
         system("CLS");
         cout << "\n\t                                                --------------THONG TIN NHAN VIEN--------------\n" << endl;
 
-        cout << "                                                        ID         : "  << staffid << endl;
-        cout << "                                                        Ho va ten  : "  << firstname << " " << lastname << endl;
-        cout << "                                                        Sdt        : 0" << staffphone << endl;
+        cout <<     "                                                        ID         : "  << staffid << endl;
+        cout <<     "                                                        Ho va ten  : "  << firstname << " " << lastname << endl;
+        cout <<     "                                                        Sdt        : 0" << staffphone << endl;
         if (gender == 1) 
-        cout << "                                                        Gioi tinh  : Nam" << endl;
+        cout <<     "                                                        Gioi tinh  : Nam" << endl;
         else 
-        cout << "                                                        Gioi tinh  : Nu"  << endl;
-        cout << "                                                        Ngay sinh  : "  << g / 10000 << "-" << g / 100 % 100<< "-" << g % 100 << endl; //g % 100 << "-" << g / 100 % 100<< "-" << g / 10000
-        cout << "                                                        Luong thang: " << pay << "$" << endl;
+        cout <<     "                                                        Gioi tinh  : Nu"  << endl;
+        cout <<     "                                                        Ngay sinh  : "  << g / 10000 << "-" << g / 100 % 100<< "-" << g % 100 << endl; //g % 100 << "-" << g / 100 % 100<< "-" << g / 10000
+        cout <<     "                                                        Luong thang: " << pay << "$" << endl;
 
         do{
-            cout <<  "\n\n                                               DE NGHI KIEM TRA KI THONG TIN!";
-          //cout << "\n\t                                              --------------DANH SACH NHAN VIEN--------------\n\n";
+            cout <<  "\n\n                                               DE NGHI KIEM TRA KI THONG TIN!" << endl;
 
             cout <<    "\n                                               *Neu co thay doi nhan phim (1)";
             cout <<    "\n                                               *Neu xac nhan tao tai khoan nhan phim (2)";
@@ -198,29 +201,12 @@ void staff::delete_staff(staff list0[]){
             temp << line << endl;
                }
                    }
-                        cout <<   "\t                                    *Nhan vien voi ma " << name << " da bi XOA neu ton tai!*" << endl;
+                        cout << "\t                                    *Nhan vien voi ma " << name << " da bi XOA neu ton tai!*" << endl;
                     myfile.close();
                 temp.close();
             remove("staff.txt");
         rename("temp.txt", "staff.txt");
     s--;
-        int st;
-            cout <<   "\n\t                                               1.Tiep tuc xoa                  2.Tro lai Menu\n";
-                cin >> st;
-                    while (st < 1 || st > 2){
-                        cout << "\n\t                                                    *YEU CAU KHONG HOP LE, MOI NHAP LAI*";
-
-                    cout << "\n\t                                               1.Tiep tuc xoa                  2.Tro lai Menu\n";
-                cin >> st;
-            }
-        if (st == 1){
-            system("CLS");
-            return delete_staff(list0);
-        }
-        if (st == 2){
-            system("CLS");
-            return menu();
-    }
 }
 
 //*HAM DOC FILE CLIENT-DATA*
@@ -255,6 +241,7 @@ int  ClientData::read_file_clientdata(ClientData list1[]){
 
 //*HAM XUAT FILE CLIENT-DATA*
 void ClientData::out_file_clientdata(ClientData list1[], int c){
+
     cout << "\n\t                                              --------------DANH SACH KHACH HANG--------------\n\n" << endl;
     cout << "                                         ____________________________________________________________________________\n";
     cout << "                                         |STT|    ID    |  Mat khau  |   Ho   |     Ten     | Gioi | AP | Ngay sinh |\n";
@@ -305,22 +292,6 @@ void ClientData::find_client(ClientData list1[], int c){
         system("CLS");
             cout << "\n\t                                                         *KHACH HANG KHONG TON TAI!*" << endl;
     }
-    int cli;
-    cout <<   "\n                                              1.Tiep tuc tim                   2.Tro lai Menu\n";
-    cin >> cli;
-    while (cli < 1 || cli > 2){
-        cout << "\n\t                                                   *YEU CAU KHONG HOP LE, MOI NHAP LAI*";
-        cout << "\n                                                          1.Tiep tuc tim                   2.Tro lai Menu\n";
-        cin >> cli;
-    }
-    if (cli == 1){
-        system("CLS");
-            return find_client(list1,c);
-    }
-    if (cli == 2){
-        system("CLS");
-            return menu();
-    }
 }
 
 //*HAM XOA KHACH HANG*
@@ -345,22 +316,6 @@ void ClientData::delete_client(ClientData list1[]){
             remove("Customer-Data.txt");
         rename("temp4.txt", "Customer-Data.txt");
     c--;
-        int cli1;
-            cout <<   "\n\t                                               1.Tiep tuc xoa                  2.Tro lai Menu\n";
-                cin >> cli1;
-                    while (cli1 < 1 || cli1 > 2){
-                        cout << "\n\t                                                    *YEU CAU KHONG HOP LE, MOI NHAP LAI*";
-                    cout << "\n\t                                                          1.Tiep tuc xoa                  2.Tro lai Menu\n";
-                cin >> cli1;
-            }
-        if (cli1 == 1){
-            system("CLS");
-            return delete_client(list1);
-        }
-        if (cli1 == 2){
-            system("CLS");
-            return menu();
-        } 
 }
 
 //*HAM HUY APPOINTMENT*
@@ -455,40 +410,24 @@ void appointment::out_file_appointmentYES(){
 void appointment::deleteappointment(appointment list2[]){
     int size2 = read_file_appointment(list2) - 1;
     out_file_appointment(list2,size2);
-        string line, name;
-            cout << "\n\n\t                                               Nhap Ma don hang ban muon xoa: ";
-                cin >> name;
-                    ifstream myfile;
-                myfile.open("Appointment-Origin.txt");
-            ofstream temp;
-        temp.open("temp2.txt");
+    string line, name;
+    cout << "\n\n\t                                               Nhap Ma don hang ban muon xoa: ";
+    cin >> name;
+    ifstream myfile;
+    myfile.open("Appointment-Origin.txt");
+    ofstream temp;
+    temp.open("temp2.txt");
     while (getline(myfile, line)){
-        if (line.substr(0, name.size()) != name){
+       if (line.substr(0, name.size()) != name){
             temp << line << endl;
-                }
-                    }
-                        cout <<   "\t                                           *Don hang voi ma " << name << " da bi XOA neu ton tai!*" << endl;
-                    myfile.close();
-                temp.close();
-            remove("Appointment-Origin.txt");
-        rename("temp2.txt", "Appointment-Origin.txt");
-        size2--;
-    int ap1;
-        cout <<   "\n\t                                               1.Tiep tuc xoa                  2.Tro lai Menu\n";
-            cin >> ap1;
-                while (ap1 < 1 || ap1 > 2){
-                    cout << "\n\t                                                    *YEU CAU KHONG HOP LE, MOI NHAP LAI*";
-                        cout << "\n\t                                                          1.Tiep tuc xoa                  2.Tro lai Menu\n";
-                    cin >> ap1;
-                }
-            if (ap1 == 1){
-                system("CLS");
-                return deleteappointment(list2);
-            }
-            if (ap1 == 2){
-                system("CLS");
-                return menu();
-            }
+        }
+    }
+    cout << "\t                                           *Don hang voi ma " << name << " da bi XOA neu ton tai!*" << endl;
+    myfile.close();
+    temp.close();
+    remove("Appointment-Origin.txt");
+    rename("temp2.txt", "Appointment-Origin.txt");
+    size2--;
 }
 
 //*HAM LAY MA DON HANG*
@@ -542,7 +481,7 @@ void appointment::nosangyes(appointment list2[], int m){
                 rename("temp3.txt","Appointment-Origin.txt");
                     int size2 = read_file_appointment(list2) - 1;
                          out_file_appointment(list2,size2);
-    int app;
+/*     int app;
         cout << "\n\n\t                                               1.Tiep tuc xac nhan             2.Tro lai Menu\n";
             cout << "\n\t\t\tChon: ";
                 cin >> app;
@@ -559,12 +498,12 @@ void appointment::nosangyes(appointment list2[], int m){
     if (app == 2){
         system("CLS");
             return menu();
-    }
+    } */
 }
 
 //*HAM NHAN ESC DE THOAT*
 void esc(){
-    cout << "\n\n\t                                                            NHAN ESC DE THOAT...";
+    cout << "\n\n\t                                                              NHAN ESC DE THOAT...";
         while(1){
             if(getch() == 0x1b)
                 break;
@@ -600,9 +539,7 @@ void menu(){
     case 1:{
         system("CLS");
         stf.out_file_staff(list0,s);
-
         cout << "\n                                                       1.Tro lai                                   2.Sua\n";
-
         cout << "\n\t\t\tChon: ";
         cin >> st1;
         switch (st1){
@@ -614,7 +551,6 @@ void menu(){
                 case 2:{
                     system("CLS");
                     int nv;
-                  //cout <<  "\n\t                                              --------------DANH SACH NHAN VIEN--------------\n\n";
 
                     cout <<  "\n\t                                          ----------------SUA THONG TIN NHAN VIEN----------------\n\n";
                     
@@ -637,9 +573,27 @@ void menu(){
                             }
                             case 2:{
                                 system("CLS");
-                                    stf.delete_staff(list0);                                                                                                                              
-                                        break;
+                                stf.delete_staff(list0);   
+                                int st;
+                                cout << "\n\t                                               1.Tiep tuc xoa                  2.Tro lai Menu\n";
+                                cout << "\n\t\t\tChon: ";
+                                cin >> st;
+                                while (st < 1 || st > 2){
+                                    cout << "\n\t                                                    *YEU CAU KHONG HOP LE, MOI NHAP LAI*";
+                                    cout << "\n\t                                               1.Tiep tuc xoa                  2.Tro lai Menu\n";
+                                    cout << "\n\t\t\tChon: ";
+                                    cin >> st;
                                 }
+                                if (st == 1){
+                                    system("CLS");
+                                    return stf.delete_staff(list0);
+                                }
+                                if (st == 2){
+                                    system("CLS");
+                                    return menu();
+                                }                                                                                                                           
+                                break;
+                            }
                             case 3:{
                                 system("CLS");
                                     return menu();
@@ -667,7 +621,6 @@ void menu(){
         system("CLS");
         apt.out_file_appointmentYES();
         cout << "\n\t                                                           Nhan phim 1 de tro lai Menu!\n";
-
         cout << "\n\t\t\tChon: ";
         cin >> st2;
         switch (st2){
@@ -688,9 +641,7 @@ void menu(){
     case 3:{
         system("CLS");
         client.out_file_clientdata(list1,c);
-
         cout << "\n                                                      1.Tro lai                                   2.Sua\n";
-
         cout << "\n\t\t\tChon: ";
         cin >> st3;
         switch (st3){
@@ -715,14 +666,50 @@ void menu(){
                     switch(nv){
                             case 1:{
                                 system("CLS");
-                                    client.find_client(list1,c);
-                                        break;
+                                client.find_client(list1,c);
+                                int cli;
+                                cout << "\n                                                    1.Tiep tuc tim                   2.Tro lai Menu\n";
+                                cout << "\n\t\t\tChon: ";
+                                cin >> cli;
+                                while (cli < 1 || cli > 2){
+                                    cout << "\n\t                                                   *YEU CAU KHONG HOP LE, MOI NHAP LAI*";
+                                    cout << "\n                                                          1.Tiep tuc tim                   2.Tro lai Menu\n";
+                                    cout << "\n\t\t\tChon: ";
+                                    cin >> cli;
+                                }
+                                if (cli == 1){
+                                    system("CLS");
+                                    return client.find_client(list1,c);
+                                }
+                                if (cli == 2){
+                                    system("CLS");
+                                    return menu();
+                                }
+                                break;
                             }
                             case 2:{
                                 system("CLS");
-                                    client.delete_client(list1);                                                                        
-                                        break;
+                                client.delete_client(list1);   
+                                int cli1;
+                                cout <<   "\n\t                                               1.Tiep tuc xoa                  2.Tro lai Menu\n";
+                                cout << "\n\t\t\tChon: ";
+                                cin >> cli1;
+                                while (cli1 < 1 || cli1 > 2){
+                                    cout << "\n\t                                                    *YEU CAU KHONG HOP LE, MOI NHAP LAI*";
+                                    cout << "\n\t                                                          1.Tiep tuc xoa                  2.Tro lai Menu\n";
+                                    cout << "\n\t\t\tChon: ";
+                                    cin >> cli1;
                                 }
+                                if (cli1 == 1){
+                                    system("CLS");
+                                    return client.delete_client(list1);
+                                }
+                                if (cli1 == 2){
+                                    system("CLS");
+                                    return menu();
+                                }                                                                      
+                                break;
+                            }
                             case 3:{
                                 system("CLS");
                                     return menu();
@@ -775,13 +762,49 @@ void menu(){
                     switch(ch){
                         case 1:{
                             system("CLS");
-                                apt.nosangyes(list2,m);
-                                    break;
+                            apt.nosangyes(list2,m);
+                            int app;
+                            cout << "\n\n\t                                               1.Tiep tuc xac nhan             2.Tro lai Menu\n";
+                            cout << "\n\t\t\tChon: ";
+                            cin >> app;
+                            while (app < 1 || app > 2){
+                                cout << "\n\t                                                    YEU CAU KHONG HOP LE, MOI NHAP LAI";
+                                cout << "\n\t                                               1.Tiep tuc xac nhan             2.Tro lai Menu\n";
+                                cout << "\n\t\t\tChon: ";
+                                cin >> app;
+                            }
+                            if (app == 1){
+                                system("CLS");
+                                return apt.nosangyes(list2,m);
+                            }
+                            if (app == 2){
+                                system("CLS");
+                                return menu();
+                            }
+                            break;
                         }
                         case 2:{
                             system("CLS");
-                                apt.deleteappointment(list2);                                
-                                    break;
+                            apt.deleteappointment(list2);       
+                            int ap1;
+                            cout << "\n\t                                               1.Tiep tuc xoa                  2.Tro lai Menu\n";
+                            cout << "\n\t\t\tChon: ";
+                            cin >> ap1;
+                            while (ap1 < 1 || ap1 > 2){
+                                cout << "\n\t                                                    *YEU CAU KHONG HOP LE, MOI NHAP LAI*";
+                                cout << "\n\t                                                          1.Tiep tuc xoa                  2.Tro lai Menu\n";
+                                cout << "\n\t\t\tChon: ";
+                                cin >> ap1;
+                            }
+                            if (ap1 == 1){
+                                system("CLS");
+                                return apt.deleteappointment(list2);
+                            }
+                            if (ap1 == 2){
+                                system("CLS");
+                                return menu();
+                            }                         
+                            break;
                         }
                         case 3:{
                             system("CLS");
