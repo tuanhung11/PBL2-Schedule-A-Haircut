@@ -5,6 +5,7 @@
 #include <time.h>
 #include <iostream>
 #include <iomanip>
+#include <windows.h>
 #include "date.h"
 
 using namespace std;

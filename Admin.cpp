@@ -12,8 +12,15 @@ void admin::singin(){
     int temp = 0;
     char phone[15], pass[15], ch;
     do{
-        if (temp > 0)  
-        cout << "\n\n\t\t\t                             *SO DIEN THOAI HOAC MAT KHAU KHONG DUNG, MOI NHAP LAI!*\n\n";
+        system("CLS");
+        cout << "\n\t\t============================================================ ADMIN ============================================================\n\n\n\n\n";
+        
+        cout << "\n\t\t                                                 -----------SIGN IN-----------\t\t\t\n\n";
+        if (temp > 0){
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),124);
+            cout << "\n\t\t\t                             *SO DIEN THOAI HOAC MAT KHAU KHONG DUNG, MOI NHAP LAI!*\n\n";
+            SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE),120);   
+        }
         cout << "\t\t\t                                         Nhap so dien thoai: ";
         cin >> phone;
         cout << "\t\t\t                                         Nhap mat khau     : ";
@@ -523,7 +530,7 @@ void menu(){
   int c = client.read_file_clientdata(list1) - 1;
   int m = apt.read_file_appointment(list2) - 1;
 
-  cout << "\n\t\t                                   ======================== ADMIN ========================\n";
+  cout << "\n\t\t============================================================ ADMIN ============================================================\n\n\n\n\n";
 
   cout << "\n\t\t                                            ______________________________________";
   cout << "\n\t\t                                            | *1. Quan ly nhan vien            * |";
@@ -538,6 +545,7 @@ void menu(){
   switch (n){
     case 1:{
         system("CLS");
+        cout << "\n\t\t============================================================ ADMIN ============================================================\n\n\n";
         stf.out_file_staff(list0,s);
         cout << "\n                                                       1.Tro lai                                   2.Sua\n";
         cout << "\n\t\t\tChon: ";
@@ -551,6 +559,7 @@ void menu(){
                 case 2:{
                     system("CLS");
                     int nv;
+                    cout <<     "\n\t\t============================================================ ADMIN ============================================================\n\n\n";
 
                     cout <<  "\n\t                                          ----------------SUA THONG TIN NHAN VIEN----------------\n\n";
                     
@@ -565,6 +574,7 @@ void menu(){
                     switch(nv){
                             case 1:{
                                 system("CLS");
+                                cout << "\n\t\t============================================================ ADMIN ============================================================\n\n\n";
                                     stf.add_staff(list0,s);
                                         system("\tpause");
                                             system("CLS");
@@ -573,6 +583,7 @@ void menu(){
                             }
                             case 2:{
                                 system("CLS");
+                                cout << "\n\t\t============================================================ ADMIN ============================================================\n\n\n";
                                 stf.delete_staff(list0);   
                                 int st;
                                 cout << "\n\t                                               1.Tiep tuc xoa                  2.Tro lai Menu\n";
@@ -619,6 +630,7 @@ void menu(){
     }
     case 2:{
         system("CLS");
+        cout << "\n\t\t============================================================ ADMIN ============================================================\n\n\n";
         apt.out_file_appointmentYES();
         cout << "\n\t                                                           Nhan phim 1 de tro lai Menu!\n";
         cout << "\n\t\t\tChon: ";
@@ -640,6 +652,7 @@ void menu(){
     }
     case 3:{
         system("CLS");
+        cout << "\n\t\t============================================================ ADMIN ============================================================\n\n\n";
         client.out_file_clientdata(list1,c);
         cout << "\n                                                      1.Tro lai                                   2.Sua\n";
         cout << "\n\t\t\tChon: ";
@@ -653,6 +666,8 @@ void menu(){
                 case 2:{
                     system("CLS");
                     int nv;
+                    cout <<        "\n\t\t============================================================ ADMIN ============================================================\n\n\n";
+
                     cout <<    "\n\t                                           ---------------SUA THONG TIN KHACH HANG---------------\n\n";
                     
                     cout <<    "\n\t                                                           ______________________";
@@ -666,6 +681,7 @@ void menu(){
                     switch(nv){
                             case 1:{
                                 system("CLS");
+                                cout << "\n\t\t============================================================ ADMIN ============================================================\n\n\n";
                                 client.find_client(list1,c);
                                 int cli;
                                 cout << "\n                                                    1.Tiep tuc tim                   2.Tro lai Menu\n";
@@ -689,6 +705,7 @@ void menu(){
                             }
                             case 2:{
                                 system("CLS");
+                                cout << "\n\t\t============================================================ ADMIN ============================================================\n\n\n";
                                 client.delete_client(list1);   
                                 int cli1;
                                 cout <<   "\n\t                                               1.Tiep tuc xoa                  2.Tro lai Menu\n";
@@ -734,6 +751,7 @@ void menu(){
     }
     case 4:{
         system("CLS");
+        cout << "\n\t\t============================================================ ADMIN ============================================================\n\n\n";
         apt.out_file_appointment(list2,m);
 
         cout << "\n                                                      1.Tro lai                                   2.Sua\n";
@@ -748,6 +766,7 @@ void menu(){
                 }
                 case 2:{
                     system("CLS");
+                    cout <<       "\n\t\t============================================================ ADMIN ============================================================\n\n\n";
                     int ch;
                     cout <<  "\n\t                                          ------------------SUA THONG TIN CUOC HEN------------------\n\n";
                     
@@ -762,6 +781,7 @@ void menu(){
                     switch(ch){
                         case 1:{
                             system("CLS");
+                            cout << "\n\t\t============================================================ ADMIN ============================================================\n\n\n";
                             apt.nosangyes(list2,m);
                             int app;
                             cout << "\n\n\t                                               1.Tiep tuc xac nhan             2.Tro lai Menu\n";
@@ -785,6 +805,7 @@ void menu(){
                         }
                         case 2:{
                             system("CLS");
+                            cout << "\n\t\t============================================================ ADMIN ============================================================\n\n\n";
                             apt.deleteappointment(list2);       
                             int ap1;
                             cout << "\n\t                                               1.Tiep tuc xoa                  2.Tro lai Menu\n";
